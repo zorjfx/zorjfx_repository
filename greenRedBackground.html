@@ -7,14 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green - Red</title>
     <style type="text/css">
-        .style1 {
+        .container {
             background-color: #00b400;
-            width: 100px;
-            height: 100px;
-        }
-
-        .style1:hover {
-            background-color: red;
+            width: 10em;
+            height: 10em;
+            transition: 2s;
         }
 
         .box {
@@ -23,16 +20,27 @@
             justify-content: center;
             height: 100vh;
             width: 100%;
-
         }
     </style>
 </head>
 
 <body>
     <div class="box">
-        <div class="style1"></div>
-
+        <div class="container"></div>
     </div>
+
+    <script>
+        document.getElementsByClassName("container")[0].onmouseenter = (event) => {
+            event.target.style.background = "blue";
+            event.target.style.width = "20em";
+        }
+
+        document.getElementsByClassName("container")[0].onmouseleave = (event) => {
+            event.target.style.background = "red";
+            event.target.style.width = "10em";
+        }
+    </script>
+
 </body>
 
 </html>

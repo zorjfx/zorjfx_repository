@@ -9,9 +9,11 @@
     <script type="text/javascript" src="homework24.js"></script>
 </head>
 
-<body>
+<body>  <!-- XSS -->
     <input type="text" id="yearsAmount">
-    <button id="seeResultButton" onclick="yearsInSec(parseInt(document.getElementById('yearsAmount').value))">see
+    <button id="seeResultButton"
+            onclick="yearsInSec(parseInt(document.getElementById('yearsAmount').value))">
+        see
         seconds
         amount</button>
     <span id="result"></span>
