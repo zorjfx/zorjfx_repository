@@ -1,3 +1,5 @@
+sum()
+
 # import random
 #
 # random_list1 = list(random.randint(0, 1000) for i in range(100))
@@ -27,5 +29,3 @@
 #     [-1, -22, -3, 4],
 # ))
 #
-
-
