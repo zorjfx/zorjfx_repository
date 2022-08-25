@@ -1,40 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT').then((response) => {
-        return response.json();
-    })
-        .then((data) => {
-            document.getElementById('btc').innerText = data['price'] + ' $'
-        })
-    fetch('https://api.binance.com/api/v3/ticker/price?symbol=ETHUSDT').then((response) => {
-        return response.json();
-    })
-        .then((data) => {
-            document.getElementById('eth').innerText = data['price'] + ' $'
-        })
-    fetch('https://api.binance.com/api/v3/ticker/price?symbol=BNBUSDT').then((response) => {
-        return response.json();
-    })
-        .then((data) => {
-            document.getElementById('bnb').innerText = data['price'] + ' $'
-        })
+
+    const priceApi = 'https://api.binance.com/api/v3/ticker/price?symbol=';
+
+    function getPrice(ticker, priceElementId) {
+        fetch(`${priceApi}${ticker}`).then((response) => {
+            return response.json();
+        }).then((data) => {
+            document.getElementById(priceElementId).innerText = data['price'] + ' $';
+        });
+    }
+
+    getPrice('BTCUSDT', 'btc');
+    getPrice('ETHUSDT', 'eth');
+    getPrice('BNBUSDT', 'bnb');
+
     setInterval(() => {
-        fetch('https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT').then((response) => {
-            return response.json();
-        })
-            .then((data) => {
-                document.getElementById('btc').innerText = data['price'] + ' $'
-            })
-        fetch('https://api.binance.com/api/v3/ticker/price?symbol=ETHUSDT').then((response) => {
-            return response.json();
-        })
-            .then((data) => {
-                document.getElementById('eth').innerText = data['price'] + ' $'
-            })
-        fetch('https://api.binance.com/api/v3/ticker/price?symbol=BNBUSDT').then((response) => {
-            return response.json();
-        })
-            .then((data) => {
-                document.getElementById('bnb').innerText = data['price'] + ' $'
-            })
+        getPrice('BTCUSDT', 'btc');
+        getPrice('ETHUSDT', 'eth');
+        getPrice('BNBUSDT', 'bnb');    
     }, 10000);
 })
