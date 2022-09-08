@@ -1,8 +1,12 @@
-// document.addEventListener('DOMContentLoaded', () => {
-//     divE = document.getElementsByClassName('div')
-//     for (let i = 0; i < divE.lenght; i++) {
-//         divE[i].addEventListener('mouseenter', () => {
-//             divE[i].style.color = 'red'
-//         })
-//     }
-// })
+document.addEventListener('DOMContentLoaded', () => {
+
+    const divE = document.getElementsByClassName('header_link');
+
+    for (let i = 0; i < divE.length; i++) {
+        divE[i].addEventListener('mouseenter', (event) => {
+            event.target.style.color = 'red';
+            console.log(456);
+        });
+    }
+
+});

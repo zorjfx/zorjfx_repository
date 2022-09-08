@@ -9,7 +9,7 @@
     <script type="text/javascript" src="task_bScript.js"></script>
 </head>
 <style>
-    .followingDiv {
+    #followingDiv {
         transform: translateY(-50%) translateX(-50%);
         position: absolute;
         z-index: 999;
@@ -17,18 +17,11 @@
         background-color: olive;
         height: 50px;
         width: 50px;
-        pointer-events: none
-    }
-
-    @media (max-width: 991.98px) {
-        .follow-cursor {
-            display: none;
-        }
     }
 </style>
 
 <body>
-    <div class="followingDiv" id="block"></div>
+    <div id="followingDiv"></div>
 </body>
 
 </html>
