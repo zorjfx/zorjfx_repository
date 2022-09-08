@@ -1,34 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
     let canvas = document.getElementById('canvasE');
     let canvasContext = canvas.getContext('2d');
+    console.log(canvasContext);
     let mouseX = 0;
     let mouseY = 0;
-    let isDrawing = false
+    let isDrawing = false;
     canvasContext.strokeStyle = 'black';
-    canvasContext.lineWidth = 1;
-    let boundings = canvas.getBoundingClientRect();
+
     canvas.addEventListener('mousedown', function (event) {
-        setMouseCoordinates(event);
+        console.log(event);
+
         isDrawing = true;
-
-
         canvasContext.beginPath();
-        canvasContext.moveTo(mouseX, mouseY);
+        canvasContext.moveTo(event.offsetX, event.offsetY);
     });
     canvas.addEventListener('mousemove', function (event) {
-        setMouseCoordinates(event);
 
         if (isDrawing) {
-            canvasContext.lineTo(mouseX, mouseY);
+            canvasContext.lineTo(event.offsetX, event.offsetY);
             canvasContext.stroke();
+
         }
+
+
     });
     canvas.addEventListener('mouseup', (event) => {
-        setMouseCoordinates(event);
-        isDrawing = false
+
+        isDrawing = false;
     });
-    function setMouseCoordinates(event) {
-        mouseX = event.pageX - boundings.left;
-        mouseY = event.pageY - boundings.top;
-    }
+
 })
